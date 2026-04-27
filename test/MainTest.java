@@ -1,15 +1,27 @@
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import java.util.Scanner;
 
 public class MainTest {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
-    @Test
-    void testSum() {
-        assertEquals(5, Main.sum(2, 3));
-    }
+        String word = in.next();
 
-    @Test
-    void testNegative() {
-        assertEquals(-1, Main.sum(2, -3));
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < word.length() / 2; i++) {
+
+            if (word.charAt(i) != word.charAt(word.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
+        }
+
+        in.close();
     }
 }
